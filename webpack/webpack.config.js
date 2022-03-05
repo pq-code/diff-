@@ -6,7 +6,8 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')//自动清除打�
 console.log('process.env.NODE_ENV=', process.env.NODE_ENV) // 打印环境变量
 
 const config = {
-    entry: './src/index.js', // 打包入口地址
+    entry: './src/snabbdom.js', // 打包入口地址
+    // entry: '.src/index.js', // 打包入口地址
     output: {
         filename: 'bundle.js', // 输出文件名
         path: path.join(__dirname, 'dist') // 输出文件目录

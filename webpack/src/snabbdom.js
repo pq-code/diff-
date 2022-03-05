@@ -1,24 +1,19 @@
-import {
-    init,
-    classModule,
-    propsModule,
-    styleModule,
-    eventListenersModule,
-    h,
-} from "snabbdom";
 
-const patch = init([
-    propsModule,
-    classModule,
-    styleModule,
-    eventListenersModule
-]);//  让虚拟DOM上DOM树
-const vnode1 = h('a',{
-    props:{
-        href: 'www.baidu.com'
-    }
-},'百度')
-const vnode2 = h('div',[
+import h from './mysnabbdom/h.js';
+import patch from './mysnabbdom/patch.js';
+
+const container = document.getElementById("container");
+const vnode = h('h1',{},'你好')
+
+patch(container,vnode);
+let vnode1 =h('div',[
+    h('ul',[
+        h('li', 'a'),
+        h('li', 'b'),
+        h('li', 'a')
+    ])
+])
+let vnode2 =h('div',[
     h('ul',[
         h('li', 'a'),
         h('li', 'b'),
@@ -26,7 +21,8 @@ const vnode2 = h('div',[
     ])
 ])
 
-console.log(vnode2);
-const container = document.getElementById("container");
+// let vnode = h('div',{},'虚拟DOM')
+// console.log('Diff算法练习',vnode)
 
-patch(container,vnode2);
+
+
